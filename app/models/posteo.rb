@@ -1,0 +1,2 @@
+class Posteo < ApplicationRecord
+end
