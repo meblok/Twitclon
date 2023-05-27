@@ -2,6 +2,13 @@
 
 <h1>Posteos</h1>
 
+<%= form_with url: posteos_path, method: :get do |form| %>
+<%= form.text_field :query_text, placeholder: ('Escribe tu busqueda'), value: params[:query_text] %>
+<%end%>
+
+
+
+
 <div id="posteos">
   <% @posteos.each do |posteo| %>
     <%= render posteo %>
@@ -9,6 +16,9 @@
       <%= link_to "Show this posteo", posteo %>
     </p>
   <% end %>
+</div>
+<div>
+  <%=  raw pagy_nav(@pagy) %>
 </div>
 
 <%= link_to "New posteo", new_posteo_path %>

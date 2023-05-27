@@ -3,7 +3,11 @@ class PosteosController < ApplicationController
 
   # GET /posteos or /posteos.json
   def index
-    @posteos = Posteo.all
+   @pagy, @posteos = pagy(Posteo.all)
+
+    if params[:query_text].present?
+      @posteos = @posteos.search_full_text(params[:query_text])
+    end
   end
 
   # GET /posteos/1 or /posteos/1.json
