@@ -8,7 +8,7 @@ set :user, 'deploy'
 set :ssh_options, {
     forward_agent: true,
     auth_methods: ['publickey'],
-    keys :['~/.ssh/aws_inforcap.pem']
+    keys: ['~/.ssh/aws_inforcap.pem']
 }
 
 # Deploy to the user's home directory
